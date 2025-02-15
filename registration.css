@@ -119,3 +119,7 @@ button:hover {
 .rules {
     font-family: 'Courier New', Courier, monospace;
 }
+
+.guardian-fields {
+    display: block; /* Vises som standard */
+}
