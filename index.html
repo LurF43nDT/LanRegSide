@@ -6,7 +6,6 @@
     <link rel="icon" href="./img/logo_2.png" type="image/x-icon">
     <title>Arctic LAN</title>
     <link rel="stylesheet" href="style.css">
-    <script src="main.js"></script>
 </head>
 <body>
     <div class="container">
@@ -17,11 +16,48 @@
                 Bli med på et LAN som handler om mer enn bare gaming!<br><br>
                 Vårt LAN er mer enn bare en arena for å game – det handler om å skape mestringsfølelse, bedre mental helse, inkludering og teambuilding. Gaming bringer folk sammen, bygger vennskap og gir følelsen av å oppnå noe kult sammen.<br><br>
                 Er du ikke hardcore gamer? Null stress! Vi har også aktiviteter for deg som bare vil henge, møte nye folk eller gjøre noe annet gøy. Uansett hva du liker, er dette stedet for å ha det fett og være en del av noe større.<br><br>
-                Kanskje best av alt? det koster ingenting å være med!<br><br>
+                kanskje best av alt, det koster ingenting å være med!<br><br>
                 Høres det bra ut? Da sees vi der! 🎮🔥<br><br>
                 Dørene åpnes 12:Ø0
             </p>
-            <div class="countdown" id="countdown">Nedtelling kommer...</div>
+            
+            <div id="time">
+                <div class="circle" style="--clr:#fff;">
+                    <div class="dots day_dot"></div>
+                    <svg>
+                        <circle cx="70" cy="70" r="70"></circle>
+                        <circle cx="70" cy="70" r="70" id="dd"></circle>
+                    </svg>
+                    <div id="days">00<br><span>Days</span></div>
+                </div>
+                
+                <div class="circle" style="--clr:#ff2972;">
+                    <div class="dots hr_dot"></div>
+                    <svg>
+                        <circle cx="70" cy="70" r="70"></circle>
+                        <circle cx="70" cy="70" r="70" id="hh"></circle>
+                    </svg>
+                    <div id="hours">00<br><span>Hours</span></div>
+                </div>
+
+                <div class="circle" style="--clr:#fee800;">
+                    <div class="dots min_dot"></div>
+                    <svg>
+                        <circle cx="70" cy="70" r="70"></circle>
+                        <circle cx="70" cy="70" r="70" id="mm"></circle>
+                    </svg>
+                    <div id="minutes">00<br><span>Minutes</span></div>
+                </div>
+                
+                <div class="circle" style="--clr:#04fc43;">
+                    <div class="dots sec_dot"></div>
+                    <svg>
+                        <circle cx="70" cy="70" r="70"></circle>
+                        <circle cx="70" cy="70" r="70" id="ss"></circle>
+                    </svg>
+                    <div id="seconds">00<br><span>Seconds</span></div>
+                </div>
+            </div>
             <div class="registrering-btn">
                 <h2>Meld deg på her!</h2>
                 <a href="registration.html">
@@ -33,13 +69,13 @@
     <div class="sponsor-container">
         <h2>Våre Sponsorer</h2>
         <div class="sponsor-logos">
-            <img src="./img/Elkjop.png" alt="elkjop">
+            <img src="./img/Elkjop_logo_white-1.webp" alt="elkjop">
             <img src="./img/byggern.png" alt="">
             <img src="" alt="">
-            <img src="sponsor4.png" alt="">
+            <img src="" alt="">
         </div>
     </div>
-    
+    <script src="main.js"></script>
 </body>
 </html>
 
