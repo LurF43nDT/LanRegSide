@@ -224,3 +224,53 @@ button:hover {
     transform: translateX(-50%);
 }
 
+@media (max-width: 768px) {
+    .container {
+        width: 90%;
+        padding: 10px;
+    }
+
+    .intro {
+        padding: 20px;
+        font-size: 14px;
+    }
+
+    #time {
+        flex-direction: row; /* Keep the circles in a row */
+        flex-wrap: wrap; /* Allow wrapping to the next line */
+        gap: 10px; /* Reduce the gap between circles */
+        justify-content: center; /* Center align the circles */
+    }
+
+    #time .circle {
+        width: 80px; /* Scale down the width */
+        height: 80px; /* Scale down the height */
+    }
+
+    #time .circle svg {
+        width: 80px; /* Scale down the SVG width */
+        height: 80px; /* Scale down the SVG height */
+        transform: rotate(270deg); /* Adjust transform to fit the circle */
+    }
+
+    #time .circle svg circle {
+        transform: translate(5px, 5px) scale(0.5); /* Adjust translate and scale to fit the circle */
+    }
+
+    #time div {
+        font-size: 0.75em; /* Scale down the font size */
+    }
+
+    #time div span {
+        font-size: 0.2em; /* Scale down the span font size */
+    }
+
+    #time .dots::before {
+        width: 10px; /* Scale down the dot width */
+        height: 10px; /* Scale down the dot height */
+        top: 0; /* Adjust top position */
+        left: 50%; /* Center the dot horizontally */
+        transform: translateX(-50%); /* Center the dot */
+    }
+}
+
