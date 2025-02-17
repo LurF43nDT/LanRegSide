@@ -71,8 +71,7 @@ input {
 }
 
 button {
-    background: rgba(255, 0, 255, 0.2);
-    border: 2px solid #ff0080;
+    display: flex;
     color: #fff;
     padding: 15px 30px;
     font-size: 18px;
@@ -80,9 +79,39 @@ button {
     transition: 0.3s;
 }
 
-button:hover {
-    background: #ff0080;
-    box-shadow: 0 0 15px #ff0080;
+.registrering-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    text-align: center;
+}
+
+.registrering-btn a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.registrering-btn button {
+    background: none; /* Remove background color */
+    border: none;
+    width: auto; /* Adjust width */
+    height: auto; /* Adjust height */
+    padding: 0; /* Remove padding */
+    cursor: pointer;
+    transition: transform 0.3s;
+    margin: 0 auto; /* Center the button */
+    display: block; /* Ensure the button is a block element */
+}
+
+.registrering-btn button img {
+    width: 320px; /* Adjust image width */
+    height: 90px; /* Adjust image height */
+}
+
+.registrering-btn button:hover {
+    transform: scale(1.05);
 }
 
 /* Glitch-effekten */
@@ -148,6 +177,7 @@ button:hover {
     display: flex;
     gap: 30px;
     justify-content: center;
+    align-items: center; /* Add this line to center vertically */
     margin-top: 20px;
 }
 
@@ -222,55 +252,5 @@ button:hover {
     border-radius: 50%;
     box-shadow: 0 0 20px var(--clr), 0 0 60px var(--clr);
     transform: translateX(-50%);
-}
-
-@media (max-width: 768px) {
-    .container {
-        width: 90%;
-        padding: 10px;
-    }
-
-    .intro {
-        padding: 20px;
-        font-size: 14px;
-    }
-
-    #time {
-        flex-direction: row; /* Keep the circles in a row */
-        flex-wrap: wrap; /* Allow wrapping to the next line */
-        gap: 10px; /* Reduce the gap between circles */
-        justify-content: center; /* Center align the circles */
-    }
-
-    #time .circle {
-        width: 80px; /* Scale down the width */
-        height: 80px; /* Scale down the height */
-    }
-
-    #time .circle svg {
-        width: 80px; /* Scale down the SVG width */
-        height: 80px; /* Scale down the SVG height */
-        transform: rotate(270deg); /* Adjust transform to fit the circle */
-    }
-
-    #time .circle svg circle {
-        transform: translate(5px, 5px) scale(0.5); /* Adjust translate and scale to fit the circle */
-    }
-
-    #time div {
-        font-size: 0.75em; /* Scale down the font size */
-    }
-
-    #time div span {
-        font-size: 0.2em; /* Scale down the span font size */
-    }
-
-    #time .dots::before {
-        width: 10px; /* Scale down the dot width */
-        height: 10px; /* Scale down the dot height */
-        top: 0; /* Adjust top position */
-        left: 50%; /* Center the dot horizontally */
-        transform: translateX(-50%); /* Center the dot */
-    }
 }
 
