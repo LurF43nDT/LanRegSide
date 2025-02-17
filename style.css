@@ -14,17 +14,29 @@ body {
     min-height: 100vh;
 }
 
+.content-wrapper {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding: 20px;
+}
+
 .container {
     display: flex;
-    flex-direction: column;
+    flex-direction: column; /* Change back to column */
     align-items: center;
     justify-content: center;
-    width: 80%;
-    max-width: 900px;
+    width: 100%;
+    max-width: 900px; /* Revert max-width */
     padding: 20px;
     background: rgba(0, 0, 0, 0.6);
     border-radius: 10px;
     margin-top: 5vh;
+}
+
+.main-content {
+    flex: 2; /* Take up more space */
+    margin-left: 20px; /* Add space between schedule and main content */
 }
 
 .intro {
@@ -254,3 +266,56 @@ button {
     transform: translateX(-50%);
 }
 
+.contact-us {
+    margin-right: 5px; /* Add space between contact-us and main content */
+    background: rgba(0, 0, 0, 0.6);
+    border-radius: 20px;
+    text-align: center;
+    color: rgb(245, 245, 245);
+}
+
+.epost{
+    color: rgb(154, 240, 240);
+    text-shadow: 0 0 5px #ff0080, 0 0 10px #ff0080, 0 0 20px #ff0080;
+}
+
+.number{
+    color: rgb(154, 240, 240);
+    text-shadow: 0 0 5px #ff0080, 0 0 10px #ff0080, 0 0 20px #ff0080;
+}
+
+footer {
+    margin-top: 50px;
+    padding: 20px;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.6)); /* Add linear gradient */
+    text-align: center;
+    color: rgb(154, 240, 240);
+    border-radius: 10px; /* Add border radius */
+    width: 100%; /* Extend across the screen */
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+}
+
+footer h2 {
+    margin-bottom: 10px;
+    color: #ff0080; /* Change color */
+}
+
+footer h3 {
+    margin: 5px 0;
+    color: #ff0080; /* Change color */
+}
+
+footer p {
+    margin: 5px 0;
+    color: rgb(154, 240, 240);
+}
+
+footer a {
+    color: #ff0080;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+footer a:hover {
+    color: #fff;
+}
