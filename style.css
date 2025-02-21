@@ -157,13 +157,17 @@ button {
 }
 
 .sponsor-container {
+    display: flex;
+    flex-direction: column;
     margin-top: 50px;
     padding: 20px;
     background: rgba(0, 0, 0, 0.5);
     border-radius: 10px;
-    text-align: center;
+    justify-content: center;
     color: rgb(141, 122, 177);
 }
+
+
 
 .sponsor-logos {
     display: flex;
@@ -174,7 +178,7 @@ button {
 }
 
 .sponsor-logos img {
-    max-width: 150px; /* Juster størrelse etter behov */
+    max-width: 200px; /* Juster størrelse etter behov */
     height: auto;
     filter: brightness(0.9); /* Gjør logoene litt mørkere for stil */
     transition: transform 0.3s ease-in-out;
