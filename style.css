@@ -174,19 +174,18 @@ button {
 }
 
 .sponsor-logos img {
-    max-width: 150px; /* Juster størrelse etter behov */
-    height: auto;
-    filter: brightness(0.9); /* Gjør logoene litt mørkere for stil */
+    max-width: 150px;    /* Maintains the maximum width you specified */
+    max-height: 100px;   /* Adds a maximum height to keep logos proportional and uniform */
+    height: auto;        /* Ensures aspect ratio is maintained */
+    object-fit: contain; /* Prevents stretching while fitting within max-width and max-height */
+    filter: brightness(0.9); /* Keeps the dimming effect */
     transition: transform 0.3s ease-in-out;
 }
-
-
 
 .sponsor-logos img:hover {
     transform: scale(1.1);
     filter: brightness(1);
 }
-
 #time {
     display: flex;
     gap: 30px;
