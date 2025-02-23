@@ -5,40 +5,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registrering</title>
     <link rel="stylesheet" href="registration.css">
-    <script src="reg.js"></script>
-
+    <script defer src="reg.js"></script> <!-- Defer sikrer at skriptet laster etter HTML -->
 </head>
 <body>
     <div class="form-container">
         <h2>Meld deg på</h2>
         <p>Om du er under 18 år må du fylle ut feltet med dine foreldres navn og nummer.</p>
-        <form name="arctic-lan-signup" id="registrationForm" method="POST" data-netlify="true">
+        
+        <form id="registrationForm" name="arctic-lan-signup" method="POST" data-netlify="true">
             <input type="text" name="name" placeholder="Ditt navn" required>
             <input type="email" name="email" placeholder="Din e-post" required>
-            <input type="number" name="age" placeholder="Din alder" required>
-            <input type="Telefon" name="tlf" placeholder="Ditt nummer" required>
-            <div class="guardian-fields">
-                <input type="Guardian-Name" name="Guardian" placeholder="Foresattes navn">
-                <input type="Guardian-Phone" name="Guardian-Number" placeholder="Foresattes nummer">
+            <input type="number" id="age" name="age" placeholder="Din alder" required>
+            <input type="tel" name="telefon" placeholder="Ditt nummer" required>
+
+            <div class="guardian-fields" style="display: none;">
+                <input type="text" id="guardianName" name="guardian_name" placeholder="Foresattes navn">
+                <input type="tel" id="guardianNumber" name="guardian_number" placeholder="Foresattes nummer">
             </div>
-            <input type="Platform" name="Pc/konsoll" placeholder="Pc/Konsoll?" required>
-            <input type="Spill" name="favorite_game" placeholder="Ditt favorittspill" required>
-            <input type="Discord-tag" name="Discord-navn" placeholder="Discord" required>
-            <input type="Dager" name="Varighet" placeholder="Anngi hvilke dager du deltar" required>
-            <p>Når registrering er fullført vill du motta en epost med ytterligere informasjon og invitasjon til Discord serveren dær du vill få muligheten til og interaktere med både crewet å andre deltagere i forkant av LAN'et</p>
+
+            <input type="text" name="platform" placeholder="Pc/Konsoll?" required>
+            <input type="text" name="favorite_game" placeholder="Ditt favorittspill" required>
+            <input type="text" name="discord_name" placeholder="Discord" required>
+            <input type="text" name="event_days" placeholder="Hvilke dager deltar du?" required>
+
+            <p>Når registrering er fullført vil du motta en epost med ytterligere informasjon.</p>
+            
             <button type="submit">Start Adventure</button>
         </form>
+
+        <p id="confirmation-message" style="display: none; color: green;">Takk for din registrering!</p>
     </div>
+
     <div class="rules-form">
-        <p class="rules">! VILLKÅR OG BETINGELSER !<br></br>
-            Deltakelse på dette LAN-partyet skjer på eget ansvar.<br></br>
-             Arrangøren er ikke ansvarlig for tap, tyveri eller skade på personlige eiendeler eller utstyr som medbringes til arrangementet.<br></br>
-             Arrangementet er et rus og alkoholfritt Arrangement.<br></br>
-             Deltakerne er selv ansvarlige for å overholde arrangementets regler. Brudd på reglene kan føre til umiddelbar utkastelse fra arrangementet.<br></br>
-             Ved å delta på dette LAN-partyet aksepterer du disse betingelsene.
+        <p class="rules">! VILKÅR OG BETINGELSER !<br><br>
+            Deltakelse på dette LAN-partyet skjer på eget ansvar.<br><br>
+            Arrangøren er ikke ansvarlig for tap, tyveri eller skade på personlige eiendeler eller utstyr.<br><br>
+            Arrangementet er rus- og alkoholfritt.<br><br>
+            Ved å delta aksepterer du disse betingelsene.
         </p>
     </div>
-        
-        
 </body>
 </html>
