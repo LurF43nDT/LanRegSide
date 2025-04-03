@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registrering</title>
+    <title> Ascendant Registrering</title>
     <link rel="stylesheet" href="registration.css">
     <script defer src="reg.js"></script> 
 </head>
@@ -13,6 +13,7 @@
         <p>Om du er under 18 år må du fylle ut feltet med dine foreldres navn og nummer.</p>
         
         <form id="registrationForm" name="arctic-lan-signup" method="POST" data-netlify="true">
+            <input type="hidden" name="form-name" value="arctic-lan-signup" /> <!-- Legger til skjult felt for Netlify -->
             <input type="text" name="name" placeholder="Ditt fulle navn" required>
             <input type="email" name="email" placeholder="Din e-post" required>
             <input type="number" id="age" name="age" placeholder="Din alder" required>
@@ -33,6 +34,7 @@
             <button type="submit">Start Adventure</button>
         </form>
 
+        <p id="status-message"></p> <!-- Ny statusmelding -->
         <p id="confirmation-message" style="display: none; color: green;">Takk for din registrering!</p>
     </div>
 

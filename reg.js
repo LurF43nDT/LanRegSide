@@ -5,6 +5,32 @@ document.addEventListener("DOMContentLoaded", function () {
     const guardianNumberInput = document.getElementById("guardianNumber");
     const form = document.getElementById("registrationForm");
     const confirmationMessage = document.getElementById("confirmation-message");
+    const statusMessage = document.getElementById("status-message");
+    const maxParticipants = 50; // Maksgrense
+
+    // Funksjon for å sjekke antall påmeldte
+    async function checkRegistrations() {
+        try {
+            const response = await fetch("/.netlify/functions/check-registrations");
+            const data = await response.json();
+            const currentCount = data.count;
+
+            if (currentCount >= maxParticipants) {
+                form.style.display = "none"; // Skjul skjemaet
+                statusMessage.textContent = "Påmelding er full!";
+                statusMessage.style.color = "red";
+            } else {
+                statusMessage.textContent = `Plasser igjen: ${maxParticipants - currentCount}`;
+                statusMessage.style.color = "black";
+            }
+        } catch (error) {
+            console.error("Feil ved sjekking:", error);
+            statusMessage.textContent = "Noe gikk galt.";
+        }
+    }
+
+    // Sjekk ved lasting av siden
+    checkRegistrations();
 
     // Vis/skjul foresatt-felter basert på alder
     ageInput.addEventListener("input", function () {
@@ -30,14 +56,12 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         // Viser en bekreftelsesmelding
-        event.preventDefault(); // Stopper den vanlige innsendingen (kan fjernes hvis redirect brukes)
+        event.preventDefault(); // Stopper standard innsending midlertidig
         confirmationMessage.style.display = "block";
 
-        // Alternativ: Redirect til en takk-side (om du vil)
-        // window.location.href = "/thank-you.html";
-
         setTimeout(() => {
-            form.submit(); // Sender skjemaet etter at brukeren ser meldingen
+            form.submit(); // Sender skjemaet til Netlify
+            checkRegistrations(); // Sjekk antall etter innsending
         }, 2000);
     });
 });
