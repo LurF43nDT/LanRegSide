@@ -6,13 +6,19 @@ document.addEventListener("DOMContentLoaded", function () {
     const form = document.getElementById("registrationForm");
     const confirmationMessage = document.getElementById("confirmation-message");
     const statusMessage = document.getElementById("status-message");
-    const maxParticipants = 50; // Maksgrense
+    const maxParticipants = 50; // Sett din maksgrense her
 
     // Funksjon for å sjekke antall påmeldte
     async function checkRegistrations() {
         try {
+            console.log("Prøver å hente antall påmeldte...");
             const response = await fetch("/.netlify/functions/check-registrations");
+            console.log("Respons mottatt:", response);
+            if (!response.ok) {
+                throw new Error(`HTTP-feil! Status: ${response.status}`);
+            }
             const data = await response.json();
+            console.log("Data mottatt:", data);
             const currentCount = data.count;
 
             if (currentCount >= maxParticipants) {
@@ -25,7 +31,7 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         } catch (error) {
             console.error("Feil ved sjekking:", error);
-            statusMessage.textContent = "Noe gikk galt.";
+            statusMessage.textContent = "Feil: " + error.message;
         }
     }
 
