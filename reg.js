@@ -5,38 +5,6 @@ document.addEventListener("DOMContentLoaded", function () {
     const guardianNumberInput = document.getElementById("guardianNumber");
     const form = document.getElementById("registrationForm");
     const confirmationMessage = document.getElementById("confirmation-message");
-    const statusMessage = document.getElementById("status-message");
-    const maxParticipants = 50; // Sett din maksgrense her
-
-    // Funksjon for å sjekke antall påmeldte
-    async function checkRegistrations() {
-        try {
-            console.log("Prøver å hente antall påmeldte...");
-            const response = await fetch("/.netlify/functions/check-registrations");
-            console.log("Respons mottatt:", response);
-            if (!response.ok) {
-                throw new Error(`HTTP-feil! Status: ${response.status}`);
-            }
-            const data = await response.json();
-            console.log("Data mottatt:", data);
-            const currentCount = data.count;
-
-            if (currentCount >= maxParticipants) {
-                form.style.display = "none"; // Skjul skjemaet
-                statusMessage.textContent = "Påmelding er full!";
-                statusMessage.style.color = "red";
-            } else {
-                statusMessage.textContent = `Plasser igjen: ${maxParticipants - currentCount}`;
-                statusMessage.style.color = "black";
-            }
-        } catch (error) {
-            console.error("Feil ved sjekking:", error);
-            statusMessage.textContent = "Feil: " + error.message;
-        }
-    }
-
-    // Sjekk ved lasting av siden
-    checkRegistrations();
 
     // Vis/skjul foresatt-felter basert på alder
     ageInput.addEventListener("input", function () {
@@ -62,12 +30,14 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         // Viser en bekreftelsesmelding
-        event.preventDefault(); // Stopper standard innsending midlertidig
+        event.preventDefault(); // Stopper den vanlige innsendingen (kan fjernes hvis redirect brukes)
         confirmationMessage.style.display = "block";
 
+        // Alternativ: Redirect til en takk-side (om du vil)
+        // window.location.href = "/thank-you.html";
+
         setTimeout(() => {
-            form.submit(); // Sender skjemaet til Netlify
-            checkRegistrations(); // Sjekk antall etter innsending
+            form.submit(); // Sender skjemaet etter at brukeren ser meldingen
         }, 2000);
     });
 });
